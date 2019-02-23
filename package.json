@@ -1,0 +1,15 @@
+{
+  "name": "artigo",
+  "version": "1.0.0",
+  "description": "Algoritmo de decomposicao de um numero em seus fatores primos",
+  "main": "factoring.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matheus Simoes Minguini e Bruna Pissara",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "open-iconic": "^1.1.1"
+  }
+}
