@@ -8,6 +8,7 @@
     <link href="factoring.css" rel="stylesheet">
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="factoring.js"></script>
 
     <style>
         body {
@@ -50,7 +51,7 @@
                         <span class="oi oi-calculator" title="calculator" aria-hidden="true"></span>
                     </button>
                 </div>
-                
+
             </div>
 
             <div class="col">
@@ -66,10 +67,10 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="">Fatoração</span>
                     </div>
-                    <input type="number" class="form-control">&nbsp;
-                    
+                    <input type="number" id="number_to_be_factored" class="form-control">&nbsp;
 
-                    <button type="button" class="btn btn-success">Fatore
+
+                    <button type="button" class="btn btn-success" onClick="factorInPrimes()">Fatore
                         <span class="oi oi-calculator" title="calculator" aria-hidden="true"></span>
                     </button>
                 </div>
@@ -77,8 +78,8 @@
 
             <div class="col">
                 <br>
-                <h5>Resultado: </h5>
-                <h5>Tempo de processamento: </h5>
+                <h5>Resultado: <span id="resultFactoringText"></span> </h5>
+                <h5>Tempo de processamento: <span id="timeFactoringText"></span></h5>
             </div>
         </div>
     </div>
@@ -87,7 +88,7 @@
 <section id="footer">
     <div class="container">
         <div class="row text-center text-xs-center text-sm-left text-md-left">
-            
+
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h5>Notas importantes </h5>
 
@@ -109,31 +110,31 @@
                 <h5>Notas importantes </h5>
 
                 <ul class="list-unstyled quick-links text-white">
-                    <p>Fatorar significa transformar a soma e a subtração de expressões algébricas ou equações em um produto com fatores. 
+                    <p>Fatorar significa transformar a soma e a subtração de expressões algébricas ou equações em um produto com fatores.
                     Podemos entender a fatoração como sendo a simplificação das sentenças matemáticas. </p>
                 </ul>
 
                 <ul class="list-unstyled quick-links text-white">
-                    <p>A criptografia moderna utiliza do conceito da fatoração prima. Como visto no gráfico acima, 
+                    <p>A criptografia moderna utiliza do conceito da fatoração prima. Como visto no gráfico acima,
                     é muito fácil multiplicar um número
                     mas fatorá-lo é difícil e demanda muito tempo.</p>
                 </ul>
             </div>
-            
+
         </div>
-        
+
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
                 <p>Desenvolvido por Matheus Simões Minguini e Bruna Pissará Gonçalves</p>
                 <p class="h6">&copy Todos os direitos reservados. 2019</p>
             </div>
-        </div>	
+        </div>
     </div>
 </section>
 <!-- ./Footer -->
 
 
-   
+
 
 
 
