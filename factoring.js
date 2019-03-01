@@ -44,21 +44,36 @@ async function factorInPrimesCalculate(){
 function factorInPrimes(){
   displayMessageWhileProcessingFactorization();
 
-  factorInPrimesCalculate().then((result) => {
-      writeFactoringResultIntoScreen(result)
+  /*factorInPrimesCalculate().then((result) => {
+      writeFactoringResultIntoScreen(result);
+      DOM_objects.gif.style.display = "none";
   }).catch((error) => {
       console.log(error);
-  });
+  });*/
 }
+
+
+// function factorInPrimes(){
+//   displayMessageWhileProcessingFactorization().then(function(){
+//     factorInPrimesCalculate().then((result) => {
+//         writeFactoringResultIntoScreen(result);
+//         DOM_objects.gif.style.display = "none";
+//     }).catch((error) => {
+//         console.log(error);
+//     });
+//   });
+// }
 
 function displayMessageWhileProcessingFactorization(){
   const message = "Fatorando... ";
 
   DOM_objects.factoring.resultText.style.color = '#f16165ff';
-  DOM_objects.factoring.resultText.style.color = '#f16165ff';
+  DOM_objects.factoring.timeText.style.color = '#f16165ff';
 
   DOM_objects.factoring.resultText.innerHTML = message;
   DOM_objects.factoring.timeText.innerHTML = message;
+
+  DOM_objects.gif.style.display = "block";
 }
 
 function writeFactoringResultIntoScreen(result){
@@ -79,7 +94,9 @@ function loadPage(){
     multiplication : {
       resultText : document.getElementById("resultMultiplicationText"),
       timeText : document.getElementById("timeMultiplicationText")
-    }
+    },
+
+    gif : document.getElementById("loadingImg")
   }
 }
 

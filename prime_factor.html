@@ -30,10 +30,48 @@
             /*color: #2d8fe3ff;*/
             color: #007b5e;
         }
+
+        .loadingMessage{
+            font-weight: 1000;
+            color: #2d8fe3ff;
+            position: relative;
+        }
+
+        #loadingImg {
+          display: none;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          width: 100%;
+          height: 100%;
+          background: rgba(255,255,255,0.5);
+          z-index: 5000;
+        }
+
+        #loadingImg div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+        }
+
+        #loadingImg img{
+          width: 100px;
+          height: 100px;
+          box-shadow: 0 0 20px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1);
+        }
     </style>
 </head>
 
 <body>
+
+<div id="loadingImg">
+    <div>
+      <img src="./libs/img/pitagoras.gif"/>
+      <h4 class="loadingMessage" id="loadingMessage"> Tempo percorrido: 00:00:00 </h4>
+    </div>
+</div>
 
     <h2 class="titulo">Complexidade de tempo entre MULTIPLICAÇÃO e FATORAÇÃO PRIMA</h2>
 
