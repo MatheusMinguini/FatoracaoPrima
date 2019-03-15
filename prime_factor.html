@@ -31,24 +31,18 @@
             color: #007b5e;
         }
 
-        .loadingMessage{
-            font-weight: 1000;
-            color: #2d8fe3ff;
-            position: relative;
-        }
-
-        #loadingImg {
+        .loadingImg {
           display: none;
           position: absolute;
           left: 0px;
           top: 0px;
           width: 100%;
           height: 100%;
-          background: rgba(255,255,255,0.5);
+          background: rgba(255,255,255,0.8);
           z-index: 5000;
         }
 
-        #loadingImg div {
+        .loadingImg div {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -56,49 +50,58 @@
           height: 100%;
         }
 
-        #loadingImg img{
+        .loadingImg img{
           width: 100px;
           height: 100px;
           box-shadow: 0 0 20px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1);
+        }
+
+        .loadingMessage{
+            font-weight: 1000;
+            color: #e66c50;
+            text-align: center;
+            font-size: 2.0rem;
         }
     </style>
 </head>
 
 <body>
 
-<div id="loadingImg">
-    <div>
-      <img src="./libs/img/pitagoras.gif"/>
-      <h4 class="loadingMessage" id="loadingMessage"> Tempo percorrido: 00:00:00 </h4>
+
+
+    <div class="loadingImg">
+          <h4 class="loadingMessage" id="loadingMessage"> Tempo percorrido: 00:00:00 </h4>
+          <div>
+            <img src="./libs/img/pitagoras.gif"/>
+          </div>
     </div>
-</div>
 
     <h2 class="titulo">Complexidade de tempo entre MULTIPLICAÇÃO e FATORAÇÃO PRIMA</h2>
 
 
     <div class="row">
-        <div class="col-md-6" style="border-right: 5px solid #f16165ff;">
-            <div class="col">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="">Multiplicação</span>
-                    </div>
-                    <input type="number" class="form-control">
-                    <input type="number" class="form-control">&nbsp;
+       <div class="col-md-6" style="border-right: 5px solid #f16165ff;">
+           <div class="col">
+               <div class="input-group">
+                   <div class="input-group-prepend">
+                       <span class="input-group-text" id="">Multiplicação</span>
+                   </div>
+                   <input id="first_number_to_be_multiplied" type="number" class="form-control">
+                   <input id="second_number_to_be_multiplied" type="number" class="form-control">&nbsp;
 
-                    <button type="button" class="btn btn-success">Multiplique
-                        <span class="oi oi-calculator" title="calculator" aria-hidden="true"></span>
-                    </button>
-                </div>
+                   <button type="button" class="btn btn-success" onClick="multiplyTwoIntegers()">Multiplique
+                       <span class="oi oi-calculator" title="calculator" aria-hidden="true"></span>
+                   </button>
+               </div>
 
-            </div>
+           </div>
 
-            <div class="col">
-                <br>
-                <h5>Resultado: <span id="resultMultiplicationText"></span> </h5>
-                <h5>Tempo de processamento: <span id="timeMultiplicationText"></span> </h5>
-            </div>
-        </div>
+           <div class="col">
+               <br>
+               <h5>Resultado: <span id="resultMultiplicationText"></span> </h5>
+               <h5>Tempo de processamento: <span id="timeMultiplicationText"></span> </h5>
+           </div>
+       </div>
 
         <div class="col-md-6">
             <div class="col">

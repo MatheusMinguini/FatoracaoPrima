@@ -18,6 +18,21 @@ function factorize(number) {
     return parts;
 }
 
+async function multiply(value1, value2){
+	start();
+
+	let result = [];
+
+	const product = await value1 * value2;
+
+	const timeTaken = end();
+
+	result.push(product);
+	result.push(timeTaken);
+
+	return result;
+}
+
 async function factorInPrimesCalculate(){
   const input = document.getElementById("number_to_be_factored");
 
@@ -41,39 +56,34 @@ async function factorInPrimesCalculate(){
   return result;
 }
 
-function factorInPrimes(){
-  displayMessageWhileProcessingFactorization();
 
-  /*factorInPrimesCalculate().then((result) => {
-      writeFactoringResultIntoScreen(result);
-      DOM_objects.gif.style.display = "none";
-  }).catch((error) => {
-      console.log(error);
-  });*/
+function multiplyTwoIntegers(){
+	displayMessageWhileProcessingMultiplication();
+
+	//TODO: Validar se os dois numeros sao inteiros
+
+    const first_number_to_be_multiplied = document.getElementById("first_number_to_be_multiplied");
+    const second_number_to_be_multiplied = document.getElementById("second_number_to_be_multiplied");
+
+    multiply(first_number_to_be_multiplied.value, second_number_to_be_multiplied.value).then((result) => {
+    	writeMultiplicationResultIntoScreen(result);
+    	DOM_objects.gif.style.display = "none";
+    }).catch((error) => {
+	    console.log(error);
+	    alert("Houve um erro ao multiplicar os números. Por favor, tente mais tarde!");
+	});
 }
 
+function factorInPrimes(){
+   	displayMessageWhileProcessingFactorization();
 
-// function factorInPrimes(){
-//   displayMessageWhileProcessingFactorization().then(function(){
-//     factorInPrimesCalculate().then((result) => {
-//         writeFactoringResultIntoScreen(result);
-//         DOM_objects.gif.style.display = "none";
-//     }).catch((error) => {
-//         console.log(error);
-//     });
-//   });
-// }
-
-function displayMessageWhileProcessingFactorization(){
-  const message = "Fatorando... ";
-
-  DOM_objects.factoring.resultText.style.color = '#f16165ff';
-  DOM_objects.factoring.timeText.style.color = '#f16165ff';
-
-  DOM_objects.factoring.resultText.innerHTML = message;
-  DOM_objects.factoring.timeText.innerHTML = message;
-
-  DOM_objects.gif.style.display = "block";
+	factorInPrimesCalculate().then((result) => {
+	    writeFactoringResultIntoScreen(result);
+	    DOM_objects.gif.style.display = "none";
+	}).catch((error) => {
+	    console.log(error);
+	    alert("Houve um erro ao multiplicar os números. Por favor, tente mais tarde!");
+	});
 }
 
 function writeFactoringResultIntoScreen(result){
@@ -82,6 +92,14 @@ function writeFactoringResultIntoScreen(result){
 
   DOM_objects.factoring.resultText.innerHTML = result[0];
   DOM_objects.factoring.timeText.innerHTML = `${result[1]} segundos.`;
+}
+
+function writeMultiplicationResultIntoScreen(result){
+  DOM_objects.multiplication.resultText.style.color = '#007b5e';
+  DOM_objects.multiplication.timeText.style.color = '#007b5e';
+
+  DOM_objects.multiplication.resultText.innerHTML = result[0];
+  DOM_objects.multiplication.timeText.innerHTML = `${result[1]} segundos.`;
 }
 
 function loadPage(){
@@ -96,7 +114,7 @@ function loadPage(){
       timeText : document.getElementById("timeMultiplicationText")
     },
 
-    gif : document.getElementById("loadingImg")
+    gif : document.querySelector(".loadingImg")
   }
 }
 
@@ -112,4 +130,29 @@ function end() {
 
   // get seconds
  return seconds = Math.round(timeDiff);
+}
+
+function displayMessageWhileProcessingFactorization(){
+  const message = "Fatorando... ";
+
+  DOM_objects.factoring.resultText.style.color = '#f16165ff';
+  DOM_objects.factoring.timeText.style.color = '#f16165ff';
+
+  DOM_objects.factoring.resultText.innerHTML = message;
+  DOM_objects.factoring.timeText.innerHTML = message;
+
+  DOM_objects.gif.style.display = "block";
+}
+
+
+function displayMessageWhileProcessingMultiplication(){
+  const message = "Multiplicando... ";
+
+  DOM_objects.multiplication.resultText.style.color = '#f16165ff';
+  DOM_objects.multiplication.timeText.style.color = '#f16165ff';
+
+  DOM_objects.multiplication.resultText.innerHTML = message;
+  DOM_objects.multiplication.timeText.innerHTML = message;
+
+  DOM_objects.gif.style.display = "block";
 }
